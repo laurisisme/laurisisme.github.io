@@ -1,0 +1,235 @@
+<!-- bubble-animation-090151/frontend/public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where Boundaries Meet | A Portfolio of Lauris</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Adding Custom Ease for more complex animation curves -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        cream: '#F5F5F0',
+                        charcoal: '#0F0F0F',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-DzZDNJ6k.js"></script>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #F5F5F0; }
+        .bubble { 
+            border-radius: 50%; 
+            position: absolute; 
+            will-change: transform, opacity, filter; 
+            mix-blend-mode: exclusion; /* Creative blending when they meet */
+        }
+        .text-char { 
+            display: inline-block; 
+            opacity: 0; 
+            will-change: transform, opacity, filter; 
+        }
+        .word-wrapper {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden; /* For clip-path effects if needed */
+            vertical-align: bottom;
+        }
+        #slot-container:empty { display: none; }
+        
+        /* Blur effect helper */
+        .blur-in { filter: blur(10px); }
+    </style>
+</head>
+<body class="h-screen w-screen flex items-center justify-center bg-cream text-charcoal selection:bg-charcoal selection:text-cream">
+
+    <!-- Dynamic Slot -->
+    <div id="slot-container" class="absolute inset-0 z-0 pointer-events-none"></div>
+
+    <!-- Animation Container -->
+    <div class="relative w-full h-full mx-auto flex items-center justify-center overflow-hidden">
+        
+        <!-- Bubbles (three interactive + one extra 'community') -->
+        <div id="science" class="bubble w-24 h-24 md:w-40 md:h-40 bg-charcoal top-0 left-0 -mt-12 -ml-12 md:-mt-20 md:-ml-20" aria-label="science bubble"></div>
+
+        <div id="entrep" class="bubble w-24 h-24 md:w-40 md:h-40 bg-charcoal bottom-0 right-0 -mb-12 -mr-12 md:-mb-20 md:-mr-20" aria-label="entrepreneurship bubble"></div>
+
+        <div id="art" class="bubble w-24 h-24 md:w-40 md:h-40 bg-charcoal top-0 right-0 -mt-12 -mr-12 md:-mt-20 md:-mr-20" aria-label="art bubble"></div>
+
+        <!-- Additional related bubble about Community -->
+        <div id="community" class="bubble w-20 h-20 md:w-32 md:h-32 bg-charcoal bottom-0 left-0 -mb-10 -ml-10 md:-mb-16 md:-ml-16" aria-label="community bubble"></div>
+
+        <!-- Typography Container -->
+        <div id="text-container" class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none mix-blend-normal">
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-9xl tracking-tighter leading-none text-center px-4 text-charcoal relative">
+                <div class="overflow-hidden py-2">
+                    <span class="word-wrapper italic">Where</span>
+                </div>
+                <div class="overflow-hidden py-2">
+                    <span class="word-wrapper">Boundaries</span>
+                </div>
+                <div class="overflow-hidden py-2">
+                    <span class="word-wrapper italic">Meet</span>
+                    <span class="text-rose-500 inline-block text-4xl md:text-6xl align-top animate-pulse">.</span>
+                </div>
+            </h1>
+            
+            <div id="line-separator" class="w-0 h-[1px] bg-charcoal mt-8 opacity-0"></div>
+
+            <p id="sub-text" class="font-sans text-xs md:text-sm font-semibold uppercase tracking-[0.4em] mt-6 opacity-0 text-gray-500">
+                The collision of ideas
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(CustomEase);
+
+            const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
+            const b1 = document.getElementById('bubble-1');
+            const b2 = document.getElementById('bubble-2');
+            const words = document.querySelectorAll('.word-wrapper');
+            const subText = document.getElementById('sub-text');
+            const line = document.getElementById('line-separator');
+
+            // 1. Text Splitting Logic (Custom implementation to avoid paid plugins)
+            words.forEach(word => {
+                const text = word.textContent;
+                word.innerHTML = '';
+                text.split('').forEach(char => {
+                    const span = document.createElement('span');
+                    span.textContent = char;
+                    span.className = 'text-char origin-bottom'; // Set transform origin for rotation
+                    word.appendChild(span);
+                });
+            });
+            const chars = document.querySelectorAll('.text-char');
+
+            // 2. Initial State Setup
+            gsap.set([b1, b2], { 
+                scale: 1,
+                opacity: 1
+            });
+            
+            // 3. The Animation Sequence
+            tl
+            // PHASE 1: The Approach
+            // Move from corners to absolute center
+            .to([b1, b2], {
+                top: '50%',
+                left: '50%',
+                xPercent: -50, // Center the anchor point
+                yPercent: -50,
+                duration: 2.0,
+                ease: "power3.inOut" // Start slow, speed up, slow down at meeting
+            })
+            
+            // PHASE 2: The Tension (Anticipation)
+            // Just before booming, they shrink slightly (implosion effect)
+            .to([b1, b2], {
+                scale: 0.8,
+                duration: 0.4,
+                ease: "back.in(1.7)"
+            }, "-=0.2")
+            
+            // PHASE 3: The BOOM (Intersection)
+            // Massive expansion to fill screen, creating a transition
+            .to([b1, b2], {
+                scale: 50, // Expand to cover screen
+                opacity: 0, // Fade out as it expands to reveal white bg (or creating a flash)
+                duration: 1.2,
+                ease: "expo.out", // Fast explosion
+            })
+            // Flash effect on body background to emphasize impact
+            .to('body', {
+                backgroundColor: '#ffffff',
+                duration: 0.1,
+                yoyo: true,
+                repeat: 1
+            }, "<") // Sync with explosion start
+
+            // PHASE 4: Typography Reveal (Complex Effect)
+            // Animate characters up with rotation and blur removal
+            .fromTo(chars, 
+                { 
+                    y: 100, 
+                    rotateX: -90, 
+                    opacity: 0,
+                    filter: 'blur(10px)'
+                },
+                {
+                    y: 0,
+                    rotateX: 0,
+                    opacity: 1,
+                    filter: 'blur(0px)',
+                    duration: 1.4,
+                    stagger: 0.04, // Elegant ripple
+                    ease: "elastic.out(1, 0.75)" // Bouncy elegant text
+                }, 
+                "-=0.8" // Start slightly before explosion ends
+            )
+            
+            // Refined Line Separator expansion
+            .to(line, {
+                width: '120px',
+                opacity: 1,
+                duration: 1,
+                ease: "power2.out"
+            }, "-=1.0")
+
+            // Subtext floating up
+            .fromTo(subText,
+                { y: 20, opacity: 0, letterSpacing: '0.8em' },
+                { 
+                    y: 0, 
+                    opacity: 1, 
+                    letterSpacing: '0.4em', // Letter spacing compression
+                    duration: 2, 
+                    ease: "power3.out" 
+                }, 
+                "-=0.8"
+            );
+
+            // Optional: Continuous subtle float for the text container after animation
+            gsap.to('#text-container', {
+                y: -10,
+                duration: 4,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut",
+                delay: 4
+            });
+
+            // After the main timeline finishes, fade out and navigate to game.html
+            tl.call(() => {
+                gsap.to('body', {
+                    opacity: 0,
+                    duration: 0.6,
+                    ease: 'power2.inOut',
+                    onComplete: () => { window.location.href = 'game.html'; }
+                });
+            }, null, '+=0.6');
+        });
+    </script>
+    
+
+    
+</body>
+</html>
