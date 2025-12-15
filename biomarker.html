@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Where Boundaries Meet | Breast Cancer Visualization</title>
+    <title>Where Boundaries Meet | Breast Cancer Biomarker Visualization</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,8 +39,8 @@
 
     <!-- Fixed Header -->
     <header class="fixed top-0 left-0 w-full p-8 z-50 mix-blend-difference text-white opacity-80 flex justify-between items-center pointer-events-none">
-        <div class="text-sm tracking-widest uppercase font-sans font-medium">Portfolio 2025</div>
-        <div class="text-sm tracking-widest uppercase font-sans">Boundaries</div>
+        <div class="text-sm tracking-widest uppercase font-sans font-medium">Portfolio</div>
+        <div class="text-sm tracking-widest uppercase font-sans">Contact</div>
     </header>
 
     <!-- Main Container -->
@@ -59,6 +59,13 @@
                 <p class="narrative-text reveal-up delay-300 mt-8 leading-relaxed">
                     I stepped into the gap between complex data and human understanding. Global biomedical datasets exist, but insights often remain inaccessible.
                 </p>
+            
+        <!-- Video Card -->
+        <article class="artifact-card reveal-up delay-100 group cursor-pointer hover:shadow-lg transition-all duration-500">
+          <div class="overflow-hidden aspect-video mb-6">
+            <img src="img/biomarker-logicalflow.png" controls preload="metadata" class="artifact-media w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out">
+          </div>
+        </article>
                 
                 <!-- Scroll Indicator -->
                 <div class="scroll-indicator"></div>
@@ -75,20 +82,20 @@
                 <div class="flex flex-col md:flex-row gap-12 mt-12">
                     <div class="md:w-1/2 reveal-up delay-100">
                         <p class="narrative-text">
-                            I focused on interpretation over complexity: analyzing multi-country datasets and translating patterns into visual forms people could understand.
+                            I focused on interpretation over complexity: analyzing multi-country datasets and translating patterns into visual forms people could understand. These questions guided our exploration:
                         </p>
                     </div>
                     <div class="md:w-1/2 reveal-up delay-200 boundary-drift">
                         <div class="border-l border-terra/30 pl-6">
-                            <h3 class="font-serif text-xl mb-2 italic text-stone">Synthesis</h3>
+                            <h3 class="font-serif text-xl mb-2 italic text-stone">Question 1</h3>
                             <p class="text-sm text-stone/80">
-                                Merging distinct disciplines into a cohesive narrative.
+                                How do biomarkers for breast cancer vary across different geographical regions?
                             </p>
                         </div>
                         <div class="border-l border-terra/30 pl-6 mt-8">
-                            <h3 class="font-serif text-xl mb-2 italic text-stone">Fluidity</h3>
+                            <h3 class="font-serif text-xl mb-2 italic text-stone">Question 2</h3>
                             <p class="text-sm text-stone/80">
-                                Adapting structure to fit the unpredictable nature of user needs.
+                                What regional patterns, trends, and anomalies in biomarkers can be identified through intergrated datasets, and how can interactive data visualization combined with machine learning provide cross-disciplinary insights for global biomarker discovery?
                             </p>
                         </div>
                     </div>
@@ -109,26 +116,26 @@
                     <!-- Card 1 -->
                     <article class="artifact-card reveal-up delay-100 group cursor-pointer hover:shadow-lg transition-all duration-500">
                         <div class="overflow-hidden">
-                            <img src="https://hpi-hub.tos-cn-beijing.volces.com/static/batch_23/1757619200147-4406.jpg" 
-                                 alt="Maine Wall Stencils Design" 
-                                 class="artifact-media transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                            <video src="vid/biomarker-demo.mp4" autoplay loop muted class="w-full h-auto group-hover:scale-105 transition-transform duration-500">
+                                Demo Video
+                            </video>
                         </div>
-                        <h3 class="font-serif text-2xl mt-4 mb-2 group-hover:text-terra transition-colors">Redesign Packaging</h3>
+                        <h3 class="font-serif text-2xl mt-4 mb-2 group-hover:text-terra transition-colors">World Map</h3>
                         <p class="text-sm text-stone font-light leading-relaxed">
-                            A study in structure and ornamentation. By deconstructing historical patterns and rebuilding them with modern constraints, this artifact demonstrates how limits can inspire infinite variation.
+                            To visualize biomarker distribution, I created an interactive world map using, allowing users to explore regional variations and patterns in breast cancer biomarkers.To do that, we use Volcano plot and number of datasets per country, GeoJSON for template of world map, Folium for visualization and specific info within a country, and STRING to makes it more interactive.
                         </p>
                     </article>
 
                     <!-- Card 2 (Intersecting) -->
                     <article class="artifact-card reveal-up delay-300 group cursor-pointer hover:shadow-lg transition-all duration-500">
                         <div class="overflow-hidden bg-stone-100 flex items-center justify-center aspect-video mb-6 relative">
-                            <!-- Abstract Representation using CSS/HTML -->
-                            <div class="w-32 h-32 border border-cocoa/20 rounded-full absolute top-1/2 left-1/3 transform -translate-y-1/2 floating"></div>
-                            <div class="w-32 h-32 bg-terra/20 rounded-full absolute top-1/2 right-1/3 transform -translate-y-1/2 mix-blend-multiply floating" style="animation-delay: -2s;"></div>
+                            <img src="img/biomarker-SHAP.png" 
+                                 alt="ANIDIC Application Demo" 
+                                 class="artifact-media transform group-hover:scale-105 transition-transform duration-700 ease-out">
                         </div>
-                        <h3 class="font-serif text-2xl mt-4 mb-2 group-hover:text-terra transition-colors">Digitalize the Process</h3>
+                        <h3 class="font-serif text-2xl mt-4 mb-2 group-hover:text-terra transition-colors">Data Processing</h3>
                         <p class="text-sm text-stone font-light leading-relaxed">
-                            An interface system that breathes. It responds to user presence not just with data, but with ambient shifts in light and space, blurring the line between tool and environment.
+                            For biomarker data filtering, we integrated 2-3 datasets oer country, do cross-analysis to identify genes duplicated. We used logistic regression and XGBoost for ML, SHAP for XAI, selected top 50 genes for each model. From that, we did the KEGG and PPI (STRING)
                         </p>
                     </article>
                 </div>
@@ -148,7 +155,7 @@
                         Data becomes meaningful only when it can be shared, questioned, and understood.
                     </blockquote>
                     <blockquote class="reflection-text mt-12" style="border-color: transparent;">
-                        "To build truly resilient systems, one must be willing to let go of the rigid safety of 'either/or' and embrace the fertile uncertainty of 'both/and'."
+                        There is immense value in bridging technical analysis with human-centered design to make complex information accessible. By approaching data visualization as a boundary-crossing act, we can foster greater understanding and collaboration across disciplines. So that non biomedical experts can also gain insights from complex datasets.
                     </blockquote>
                 </div>
             </div>
@@ -162,7 +169,7 @@
                     The Horizon <br> Shifts
                 </h2>
                 <p class="narrative-text reveal-up delay-100 mt-8 opacity-60">
-                    I want to continue exploring how scientific insight can be communicated beyond academic circles.
+                    I want to continue exploring how scientific insight can be communicated beyond academic circles. For further development on this project, wet lab testing and collaboration with biology/oncology experts are crucial for finalizing promising biomarkers.
                 </p>
                 
                 <div class="mt-24 reveal-up delay-300">

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where Boundaries Meet | ElderCare</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            important: true,
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDFBF7',
+                        cocoa: '#3E2723',
+                        terra: '#D4A59A',
+                        stone: '#6D5E58'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="project.css">
+</head>
+<body class="bg-cream text-cocoa antialiased selection:bg-terra selection:text-white">
+
+    <!-- Fixed Header -->
+    <header class="fixed top-0 left-0 w-full p-8 z-50 mix-blend-difference text-white opacity-80 flex justify-between items-center pointer-events-none">
+        <div class="text-sm tracking-widest uppercase font-sans font-medium">Portfolio</div>
+        <div class="text-sm tracking-widest uppercase font-sans">Contact</div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="boundary-container">
+        <!-- Vertical Line Marker (Visualized via CSS in project.css) -->
+        <div class="timeline-marker"></div>
+
+        <!-- 1. Threshold -->
+        <section class="narrative-section" id="threshold">
+            <div class="relative z-10">
+                <span class="chapter-label delay-100">01 / Threshold</span>
+                <h1 class="narrative-title reveal-up delay-200">
+                    The Boundary <br>
+                    <span class="italic text-terra">I Stepped Into</span>
+                </h1>
+                <p class="narrative-text reveal-up delay-300 mt-8 leading-relaxed">
+                    I stepped into the fragile space between independence and vulnerability. For many elderly people, a fall is not just an accident — it’s a turning point. But many of these accident aren't not detected in time due to the lack of immediate assistance. And the demand for it is increasing with aging population worldwide.
+                </p>
+                
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator"></div>
+            </div>
+        </section>
+
+        <!-- 2. Approach -->
+        <section class="narrative-section" id="approach">
+            <div class="relative z-10">
+                <span class="chapter-label">02 / Approach</span>
+                <h2 class="narrative-title reveal-up">
+                    Navigating <br> Between Worlds
+                </h2>
+                <div class="flex flex-col md:flex-row gap-12 mt-12">
+                    <div class="md:w-1/2 reveal-up delay-100">
+                        <p class="narrative-text">
+                            ElderCare is An elderly health monitoring system for real-time risk detection and timely care. We combined technology for better health checking, especially fall detection, with human-centered design to respect user dignity and autonomy.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 reveal-up delay-200 boundary-drift">
+                        <div class="border-l border-terra/30 pl-6">
+                            <h3 class="font-serif text-xl mb-2 italic text-stone">Real-Time Fall Detection via Camera Tracking</h3>
+                            <p class="text-sm text-stone/80">
+                                This technology leverages pose recognition from live camera footage to identify falls or risky movements. Importantly, it does this without the need for wearables, making it a seamless addition to any home. 
+                            </p>
+                        </div>
+                        <div class="border-l border-terra/30 pl-6 mt-8">
+                            <h3 class="font-serif text-xl mb-2 italic text-stone">Instant Alerts to Caregivers</h3>
+                            <p class="text-sm text-stone/80">
+                                ElderCare include instant alerts to caregivers, which ensures a rapid response to any detected health risk. This immediate notification can significantly improve the chances of quick intervention and care. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Artifact -->
+        <section class="narrative-section" id="artifact">
+            <div class="relative z-10 w-full">
+                <span class="chapter-label">03 / Artifact</span>
+                <h2 class="narrative-title reveal-up">
+                    Built at the <br> Intersection
+                </h2>
+                
+                <!-- Modular Cards -->
+                <div class="artifact-grid">
+                    <!-- Card 1 -->
+                    <article class="artifact-card reveal-up delay-100 group cursor-pointer hover:shadow-lg transition-all duration-500">
+                        <div class="overflow-hidden">
+                            <video src="vid/eldercare-demo.mp4" autoplay loop muted class="w-full h-auto group-hover:scale-105 transition-transform duration-500">
+                                Demo Video
+                            </video>
+                        </div>
+                        <h3 class="font-serif text-2xl mt-4 mb-2 group-hover:text-terra transition-colors">AI-powered fall-detection system</h3>
+                        <p class="text-sm text-stone font-light leading-relaxed">
+                            In two days, our team built an AI-powered fall-detection system using TensorFlow and Google Teachable Machine, trained on 350 datasets. We also worked with Copilot to intergrate the front-end and back-end functionalities.
+                        </p>
+                    </article>
+
+                    <!-- Card 2 (Intersecting) -->
+                    <article class="artifact-card reveal-up delay-300 group cursor-pointer hover:shadow-lg transition-all duration-500">
+                        <div class="overflow-hidden bg-stone-100 flex items-center justify-center aspect-video mb-6 relative">
+                            <img src="img/eldercare-business.png" 
+                                 alt="Virtual Closet Application UIUX Demo" 
+                                 class="artifact-media transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                        </div>
+                        <h3 class="font-serif text-2xl mt-4 mb-2 group-hover:text-terra transition-colors">Business Development</h3>
+                        <p class="text-sm text-stone font-light leading-relaxed">
+                            Beyond the model, I developed market research and a business plan, pitching the project at SGA Demo Day.                       
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Reflections -->
+        <section class="narrative-section" id="reflections">
+            <div class="relative z-10 max-w-2xl">
+                <span class="chapter-label">04 / Reflections</span>
+                <h2 class="narrative-title reveal-up text-4xl md:text-5xl">
+                    What Crossing <br> Taught Me
+                </h2>
+                
+                <div class="reveal-up delay-200">
+                    <blockquote class="reflection-text">
+                        Healthcare innovation must balance urgency with dignity. AI works best when it quietly supports — not replaces — human care.
+                    </blockquote>
+                    <blockquote class="reflection-text mt-12" style="border-color: transparent;">
+                        True impact arises at the intersection of technology and empathy, where solutions are both cutting-edge and deeply human. I aim to create technologies that respect and enhance the lives of those they serve.
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. What’s Next -->
+        <section class="narrative-section pb-32" id="next">
+            <div class="relative z-10 fade-forward">
+                <span class="chapter-label">05 / The Unknown</span>
+                <h2 class="narrative-title reveal-up text-stone/50">
+                    The Horizon <br> Shifts
+                </h2>
+                <p class="narrative-text reveal-up delay-100 mt-8 opacity-60">
+                    I want to refine ElderCare into a system that integrates seamlessly into daily life, especially in aging societies. Future iterations could include additional health monitoring features, enhanced privacy measures, and broader accessibility. My goal is to create technology that not only detects risks but also empowers elderly individuals to live independently with confidence.
+                </p>
+                
+                <div class="mt-24 reveal-up delay-300">
+                    <a href="mailto:anhtus.vt04@gmail.com" class="inline-block border-b border-cocoa/30 pb-1 text-sm tracking-widest uppercase hover:border-terra hover:text-terra transition-colors duration-300">
+                        Initiate Contact ->
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Dynamic Slot for content injection -->
+    <div id="content-slot" style="display: none;"></div>
+
+    <!-- Back to Main Page Button -->
+    <div class="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
+        <a href="game.html" class="back-to-main-page shadow-xl">
+            Back to Main Page
+        </a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        ↑
+    </button>
+
+    <!-- Scripts -->
+    <script src="project.js"></script>
+
+</body>
+</html>
