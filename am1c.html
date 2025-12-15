@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where Boundaries Meet | A Million Stories in One City</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            important: true,
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDFBF7',
+                        cocoa: '#3E2723',
+                        terra: '#D4A59A',
+                        stone: '#6D5E58'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="project.css">
+</head>
+<body class="bg-cream text-cocoa antialiased selection:bg-terra selection:text-white">
+
+    <!-- Fixed Header -->
+    <header class="fixed top-0 left-0 w-full p-8 z-50 mix-blend-difference text-white opacity-80 flex justify-between items-center pointer-events-none">
+        <div class="text-sm tracking-widest uppercase font-sans font-medium">Portfolio</div>
+        <div class="text-sm tracking-widest uppercase font-sans">Contact</div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="boundary-container">
+        <!-- Vertical Line Marker (Visualized via CSS in project.css) -->
+        <div class="timeline-marker"></div>
+
+        <!-- 1. Threshold -->
+        <section class="narrative-section" id="threshold">
+            <div class="relative z-10">
+                <span class="chapter-label delay-100">01 / Threshold</span>
+                <h1 class="narrative-title reveal-up delay-200">
+                    The Boundary <br>
+                    <span class="italic text-terra">I Stepped Into</span>
+                </h1>
+                <p class="narrative-text reveal-up delay-300 mt-8 leading-relaxed">
+                    I stepped into cities by listening, not looking. Urban identity lives not only in skylines, but in everyday sounds.
+                </p>
+                
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator"></div>
+            </div>. 
+        </section>
+
+        <!-- 2. Approach -->
+        <section class="narrative-section" id="approach">
+            <div class="relative z-10">
+                <span class="chapter-label">02 / Approach</span>
+                <h2 class="narrative-title reveal-up">
+                    Navigating <br> Between Worlds
+                </h2>
+                <div class="flex flex-col md:flex-row gap-12 mt-12">
+                    <div class="md:w-1/2 reveal-up delay-100">
+                        <p class="narrative-text">
+                            Through interviews and field recording, we treated sound as cultural evidence — a bridge between memory and place.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 reveal-up delay-200 boundary-drift">
+                        <div class="border-l border-terra/30 pl-6">
+                            <h3 class="font-serif text-xl mb-2 italic text-stone">Personal Stories to Speculative Stories</h3>
+                            <p class="text-sm text-stone/80">
+                                Collected personal narratives from diverse city residents, then wove them into speculative soundscapes that imagine future urban experiences. 
+                            </p>
+                        </div>
+                        <div class="border-l border-terra/30 pl-6 mt-8">
+                            <h3 class="font-serif text-xl mb-2 italic text-stone">Sound Centric</h3>
+                            <p class="text-sm text-stone/80">
+                                Prioritized sound as the primary medium to convey identity, using field recordings and ambient sounds to create immersive experiences.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Artifact -->
+        <section class="narrative-section" id="artifact">
+            <div class="relative z-10 w-full">
+                <span class="chapter-label">03 / Artifact</span>
+                <h2 class="narrative-title reveal-up">
+                    Built at the <br> Intersection
+                </h2>
+                
+                <!-- Modular Cards -->
+                <div class="artifact-grid">
+                    <!-- Card 1 -->
+                    <article class="artifact-card reveal-up delay-100 group cursor-pointer hover:shadow-lg transition-all duration-500">
+                        <div class="overflow-hidden">
+                            <video src="vid/am1c-website.mp4" autoplay loop muted class="w-full h-auto group-hover:scale-105 transition-transform duration-500">
+                                Demo Video
+                            </video>
+                        </div>
+                        <h3 class="font-serif text-2xl mt-4 mb-2 group-hover:text-terra transition-colors">Sonic Narratives</h3>
+                        <p class="text-sm text-stone font-light leading-relaxed">
+                            We used Adobe Audition to produce sonic narratives across four Chinese cities: Shanghai, Qingdao, Rizhao, Hangzhou. Each narrative blends field recordings with personal stories to create immersive soundscapes that reflect the unique cultural identities of these urban environments.
+                        </p>
+                    </article>
+
+                    <!-- Card 2 (Intersecting) -->
+                    <article class="artifact-card reveal-up delay-300 group cursor-pointer hover:shadow-lg transition-all duration-500">
+                        <div class="overflow-hidden bg-stone-100 flex items-center justify-center aspect-video mb-6 relative">
+                            <img src="img/am1c-media.png" 
+                                 alt="Virtual Closet Application UIUX Demo" 
+                                 class="artifact-media transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                        </div>
+                        <h3 class="font-serif text-2xl mt-4 mb-2 group-hover:text-terra transition-colors">Social Media Reels</h3>
+                        <p class="text-sm text-stone font-light leading-relaxed">
+                            Created engaging social media reels to share the sonic narratives, utilizing dynamic visuals and sound design to captivate audiences and promote cultural appreciation. Our Instagram platform reaching 5,000+ views.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Reflections -->
+        <section class="narrative-section" id="reflections">
+            <div class="relative z-10 max-w-2xl">
+                <span class="chapter-label">04 / Reflections</span>
+                <h2 class="narrative-title reveal-up text-4xl md:text-5xl">
+                    What Crossing <br> Taught Me
+                </h2>
+                
+                <div class="reveal-up delay-200">
+                    <blockquote class="reflection-text">
+                        Sound reveals what visuals often miss: rhythm, emotion, intimacy.
+                    </blockquote>
+                    <blockquote class="reflection-text mt-12" style="border-color: transparent;">
+                        By blending personal stories with ambient soundscapes, we can craft richer, more empathetic urban narratives that resonate on a human level. It also shows that some sounds can envoke powerful memories and emotions tied to place.
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. What’s Next -->
+        <section class="narrative-section pb-32" id="next">
+            <div class="relative z-10 fade-forward">
+                <span class="chapter-label">05 / The Unknown</span>
+                <h2 class="narrative-title reveal-up text-stone/50">
+                    The Horizon <br> Shifts
+                </h2>
+                <p class="narrative-text reveal-up delay-100 mt-8 opacity-60">
+                    I want to explore sound as a tool for cultural preservation and empathy-building. I believe sound is a powerful medium to connect people to place and to each other, especially in our increasingly digital and visual world.
+                </p>
+                
+                <div class="mt-24 reveal-up delay-300">
+                    <a href="mailto:anhtus.vt04@gmail.com" class="inline-block border-b border-cocoa/30 pb-1 text-sm tracking-widest uppercase hover:border-terra hover:text-terra transition-colors duration-300">
+                        Initiate Contact ->
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Dynamic Slot for content injection -->
+    <div id="content-slot" style="display: none;"></div>
+
+    <!-- Back to Main Page Button -->
+    <div class="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
+        <a href="game.html" class="back-to-main-page shadow-xl">
+            Back to Main Page
+        </a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        ↑
+    </button>
+
+    <!-- Scripts -->
+    <script src="project.js"></script>
+
+</body>
+</html>
