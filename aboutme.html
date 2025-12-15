@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - When Boundaries Meet | By HAISNAP</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            800: '#292524',
+                            900: '#1c1917',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        body {
+            background-color: #fafaf9; /* stone-50 */
+            color: #1c1917; /* stone-900 */
+            overflow-x: hidden;
+        }
+        .text-balance {
+            text-wrap: balance;
+        }
+        .reveal-text {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        /* Hide scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d6d3d1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a29e;
+        }
+        
+        .slot-container {
+            /* 预留槽位容器样式 */
+            position: relative;
+        }
+        
+        /* Keyword Animation Styles */
+        .keyword-animate {
+            display: inline-block;
+            position: relative;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        
+        .keyword-animate::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, currentColor, transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .keyword-animate:hover::after {
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-stone-200 selection:text-stone-900">
+
+    <!-- Navigation (Minimal) -->
+    <nav class="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 mix-blend-difference text-white pointer-events-none">
+        <div class="text-sm tracking-widest uppercase font-medium pointer-events-auto cursor-pointer opacity-0 nav-item">Portfolio</div>
+        <div class="text-sm tracking-widest uppercase font-medium pointer-events-auto cursor-pointer opacity-0 nav-item">Contact</div>
+    </nav>
+
+    <main>
+        <!-- Section 1: Opening / Threshold -->
+        <section id="opening" class="relative min-h-screen flex flex-col justify-center items-center px-6 py-20 overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 z-0 pointer-events-none">
+                <div class="line-1 absolute top-1/2 left-0 w-full h-[1px] bg-stone-200 origin-left scale-x-0"></div>
+                <div class="line-2 absolute top-0 left-1/2 w-[1px] h-full bg-stone-200 origin-top scale-y-0"></div>
+            </div>
+
+            <div class="z-10 max-w-4xl w-full space-y-8 md:space-y-12">
+                <!-- Identity 1 -->
+                <div class="identity-block opacity-0 translate-y-8">
+                    <p class="text-sm text-stone-500 uppercase tracking-widest mb-2 font-mono">01. Identity</p>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-light leading-tight">
+                        I am a <span class="keyword-animate systems-thinker font-serif italic text-stone-600">systems thinker</span> <br>
+                        who works through design.
+                    </h1>
+                </div>
+
+                <!-- Identity 2 -->
+                <div class="identity-block opacity-0 translate-y-8 pl-8 md:pl-24 border-l border-stone-300">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-light leading-tight">
+                        A <span class="keyword-animate cultural-observer font-serif italic text-stone-600">cultural observer</span> <br>
+                        who learns through making.
+                    </h1>
+                </div>
+
+                <!-- Identity 3 -->
+                <div class="identity-block opacity-0 translate-y-8 pl-16 md:pl-48">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-light leading-tight">
+                        A <span class="keyword-animate bridge-builder font-serif italic text-stone-600">bridge-builder</span> <br>
+                        believing innovation lives <br>
+                        in the spaces between.
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 scroll-indicator">
+                <div class="w-[1px] h-12 bg-stone-400 overflow-hidden">
+                    <div class="w-full h-full bg-stone-800 animate-scroll-down"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: How I See the World -->
+        <section id="worldview" class="relative min-h-screen flex items-center justify-center px-6 py-24 bg-white">
+            <div class="max-w-3xl w-full relative">
+                <!-- Decorative Boundary Line -->
+                <div class="absolute -top-24 left-0 w-32 h-[1px] bg-stone-900 boundary-mark"></div>
+                
+                <div class="slot-container mb-8">
+                    <p class="text-xs font-mono text-stone-400 uppercase tracking-widest">02. Perspective</p>
+                </div>
+
+                <div class="space-y-12 text-xl md:text-3xl font-light leading-relaxed text-balance text-stone-800">
+                    <p class="worldview-text opacity-30 transition-opacity duration-500 hover:opacity-100">
+                        I observe the gaps.
+                    </p>
+                    <p class="worldview-text opacity-30 transition-opacity duration-500 hover:opacity-100">
+                        Between <span class="font-serif italic">systems</span> and chaos. <br>
+                        Between <span class="font-serif italic">disciplines</span> that rarely speak. <br>
+                        Between <span class="font-serif italic">people</span> and the tools they use.
+                    </p>
+                    <p class="worldview-text opacity-30 transition-opacity duration-500 hover:opacity-100">
+                        My work is driven by noticing contradictions and asking better questions, rather than rushing to convenient answers.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: How I Work -->
+        <section id="method" class="relative min-h-[120vh] flex flex-col justify-center px-6 py-24 bg-stone-100 overflow-hidden">
+            <!-- Background Moving Text -->
+            <div class="absolute top-1/4 left-0 w-full overflow-hidden opacity-[0.03] pointer-events-none select-none">
+                <div class="text-[10rem] md:text-[15rem] font-bold whitespace-nowrap leading-none move-text-left">
+                    OBSERVE TRANSLATE BUILD REFLECT
+                </div>
+            </div>
+
+            <div class="container mx-auto max-w-5xl z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
+                    <div class="sticky top-32">
+                        <p class="text-xs font-mono text-stone-500 uppercase tracking-widest mb-6">03. Methodology</p>
+                        <h2 class="text-4xl md:text-5xl font-serif mb-8">Making as<br>Thinking</h2>
+                        <p class="text-stone-600 text-lg leading-relaxed max-w-sm">
+                            I don't just think to build; I build to think. Technology, science, art, and entrepreneurship are not separate fields to me—they are materials I reshape to solve problems.
+                        </p>
+                    </div>
+
+                    <div class="space-y-24 pt-12 md:pt-0">
+                        <!-- Step 1 -->
+                        <div class="method-step group relative pl-8 border-l border-stone-300 hover:border-stone-800 transition-colors duration-500">
+                            <span class="absolute -left-[5px] top-0 w-2.5 h-2.5 bg-stone-300 rounded-full group-hover:bg-stone-800 transition-colors duration-500"></span>
+                            <h3 class="text-2xl font-medium mb-3">Observing</h3>
+                            <p class="text-stone-500">Immersing in the context. Listening to the unspoken needs and structural constraints.</p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="method-step group relative pl-8 border-l border-stone-300 hover:border-stone-800 transition-colors duration-500">
+                            <span class="absolute -left-[5px] top-0 w-2.5 h-2.5 bg-stone-300 rounded-full group-hover:bg-stone-800 transition-colors duration-500"></span>
+                            <h3 class="text-2xl font-medium mb-3">Translating</h3>
+                            <p class="text-stone-500">Synthesizing complexity into clear, actionable insights. bridging the language gap between stakeholders.</p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="method-step group relative pl-8 border-l border-stone-300 hover:border-stone-800 transition-colors duration-500">
+                            <span class="absolute -left-[5px] top-0 w-2.5 h-2.5 bg-stone-300 rounded-full group-hover:bg-stone-800 transition-colors duration-500"></span>
+                            <h3 class="text-2xl font-medium mb-3">Building</h3>
+                            <p class="text-stone-500">Prototyping early and often. Using code and design as probes to test hypotheses.</p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="method-step group relative pl-8 border-l border-stone-300 hover:border-stone-800 transition-colors duration-500">
+                            <span class="absolute -left-[5px] top-0 w-2.5 h-2.5 bg-stone-300 rounded-full group-hover:bg-stone-800 transition-colors duration-500"></span>
+                            <h3 class="text-2xl font-medium mb-3">Reflecting</h3>
+                            <p class="text-stone-500">Analyzing impact. Iterating based on real-world feedback loops.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: What I Care About -->
+        <section id="values" class="relative min-h-screen flex items-center px-6 py-24 bg-stone-900 text-stone-100">
+            <div class="container mx-auto max-w-6xl">
+                <p class="text-xs font-mono text-stone-500 uppercase tracking-widest mb-16 text-center">04. Values</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+                    <!-- Value 1 -->
+                    <div class="value-card group border-t border-stone-700 pt-8 transition-all duration-500 hover:border-stone-100">
+                        <div class="flex justify-between items-baseline mb-4">
+                            <h3 class="text-3xl font-light">Human Impact</h3>
+                            <span class="text-stone-600 text-sm font-mono group-hover:text-stone-300">01</span>
+                        </div>
+                        <p class="text-stone-400 font-light leading-relaxed group-hover:text-stone-200 transition-colors">
+                            Technology must serve human needs, not the other way around. I prioritize dignity, accessibility, and genuine utility.
+                        </p>
+                    </div>
+
+                    <!-- Value 2 -->
+                    <div class="value-card group border-t border-stone-700 pt-8 transition-all duration-500 hover:border-stone-100 md:mt-24">
+                        <div class="flex justify-between items-baseline mb-4">
+                            <h3 class="text-3xl font-light">Cultural Context</h3>
+                            <span class="text-stone-600 text-sm font-mono group-hover:text-stone-300">02</span>
+                        </div>
+                        <p class="text-stone-400 font-light leading-relaxed group-hover:text-stone-200 transition-colors">
+                            Innovation doesn't happen in a vacuum. I design with deep respect for local realities, histories, and social structures.
+                        </p>
+                    </div>
+
+                    <!-- Value 3 -->
+                    <div class="value-card group border-t border-stone-700 pt-8 transition-all duration-500 hover:border-stone-100">
+                        <div class="flex justify-between items-baseline mb-4">
+                            <h3 class="text-3xl font-light">Resilient Ideas</h3>
+                            <span class="text-stone-600 text-sm font-mono group-hover:text-stone-300">03</span>
+                        </div>
+                        <p class="text-stone-400 font-light leading-relaxed group-hover:text-stone-200 transition-colors">
+                            Sustainability means building systems that can survive and adapt in the real world, balancing efficiency with robustness.
+                        </p>
+                    </div>
+
+                    <!-- Value 4 -->
+                    <div class="value-card group border-t border-stone-700 pt-8 transition-all duration-500 hover:border-stone-100 md:mt-24">
+                        <div class="flex justify-between items-baseline mb-4">
+                            <h3 class="text-3xl font-light">Ethical Purpose</h3>
+                            <span class="text-stone-600 text-sm font-mono group-hover:text-stone-300">04</span>
+                        </div>
+                        <p class="text-stone-400 font-light leading-relaxed group-hover:text-stone-200 transition-colors">
+                            Technology is a powerful amplifier. I am committed to using it to bridge divides, not widen them.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Where I'm Going -->
+        <section id="future" class="relative min-h-[80vh] flex flex-col justify-center items-center px-6 py-24 bg-gradient-to-b from-stone-50 to-stone-200">
+            <div class="max-w-3xl w-full text-center space-y-12">
+                <p class="text-xs font-mono text-stone-400 uppercase tracking-widest">05. Horizon</p>
+                
+                <h2 class="text-4xl md:text-6xl font-serif italic text-stone-800 leading-tight">
+                    "<span class="keyword-animate building-bridges">I am building bridges</span>."
+                </h2>
+
+                <div class="space-y-6 text-lg md:text-xl font-light text-stone-600">
+                    <p>Between the wisdom of the old and the possibility of the new.</p>
+                    <p>Between the warmth of humanity and the scale of technology.</p>
+                    <p>Between local roots and global ecosystems.</p>
+                </div>
+
+                <div class="pt-16 slot-container">
+                    <a href="game.html" class="inline-block border-b border-stone-800 pb-1 text-stone-800 hover:text-stone-500 hover:border-stone-500 transition-all text-sm tracking-widest uppercase">
+                        Discover My Projects Here
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Footer subtle -->
+            <div class="absolute bottom-6 w-full text-center opacity-30">
+                <p class="text-[10px] uppercase tracking-widest text-stone-500">&copy; 2024 Portfolio</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Intro Animation
+            const tl = gsap.timeline();
+
+            tl.to(".line-1", { scaleX: 1, duration: 1.5, ease: "power3.inOut" })
+              .to(".line-2", { scaleY: 1, duration: 1, ease: "power3.inOut" }, "-=0.5")
+              .to(".identity-block", { 
+                  y: 0, 
+                  opacity: 1, 
+                  duration: 1, 
+                  stagger: 0.3, 
+                  ease: "power3.out" 
+              }, "-=0.5")
+              .to(".nav-item", { opacity: 1, duration: 1 }, "-=1")
+              .to(".scroll-indicator", { opacity: 1, duration: 1 }, "-=0.5");
+
+            // Keyword Animations - Systems Thinker
+            gsap.from(".systems-thinker", {
+                opacity: 0,
+                scale: 0.95,
+                y: 10,
+                duration: 1.2,
+                ease: "power3.out",
+                delay: 2.5
+            });
+
+            // Keyword Animations - Cultural Observer
+            gsap.from(".cultural-observer", {
+                opacity: 0,
+                scale: 0.95,
+                y: 10,
+                duration: 1.2,
+                ease: "power3.out",
+                delay: 3
+            });
+
+            // Keyword Animations - Bridge Builder
+            gsap.from(".bridge-builder", {
+                opacity: 0,
+                scale: 0.95,
+                y: 10,
+                duration: 1.2,
+                ease: "power3.out",
+                delay: 3.5
+            });
+
+            // Continuous subtle float animation for keywords
+            gsap.to(".keyword-animate", {
+                y: -3,
+                duration: 2,
+                ease: "sine.inOut",
+                repeat: -1,
+                yoyo: true,
+                stagger: {
+                    each: 0.3,
+                    from: "start"
+                }
+            });
+
+            // Worldview Text Fade In
+            const worldviewTexts = document.querySelectorAll(".worldview-text");
+            worldviewTexts.forEach((text) => {
+                gsap.to(text, {
+                    opacity: 1,
+                    scrollTrigger: {
+                        trigger: text,
+                        start: "top 80%",
+                        end: "top 50%",
+                        scrub: true,
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+
+            // Boundary Line Animation
+            gsap.from(".boundary-mark", {
+                width: 0,
+                scrollTrigger: {
+                    trigger: "#worldview",
+                    start: "top 60%",
+                    duration: 1
+                }
+            });
+
+            // Horizontal Moving Text in Method Section
+            gsap.to(".move-text-left", {
+                xPercent: -20,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#method",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            });
+
+            // Method Steps Stagger
+            gsap.from(".method-step", {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: "#method",
+                    start: "top 60%"
+                }
+            });
+
+            // Values Cards Parallax/Reveal
+            const valueCards = document.querySelectorAll(".value-card");
+            valueCards.forEach((card, index) => {
+                gsap.from(card, {
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
+                    delay: index * 0.1,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+
+            // Future Section Gradient shift or subtle float
+            gsap.to("#future h2", {
+                y: -20,
+                scrollTrigger: {
+                    trigger: "#future",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+
+            // Building Bridges keyword animation
+            gsap.from(".building-bridges", {
+                opacity: 0,
+                scale: 0.9,
+                rotateY: 15,
+                duration: 1.5,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".building-bridges",
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+            // Add shimmer effect on hover for all keywords
+            document.querySelectorAll('.keyword-animate').forEach(keyword => {
+                keyword.addEventListener('mouseenter', () => {
+                    gsap.to(keyword, {
+                        scale: 1.05,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
+                keyword.addEventListener('mouseleave', () => {
+                    gsap.to(keyword, {
+                        scale: 1,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
+            });
+        });
+    </script>
+    <style>
+        @keyframes scroll-down {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .animate-scroll-down {
+            animation: scroll-down 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+        }
+    </style>
+</body>
+</html>
