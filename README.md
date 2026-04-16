@@ -2,7 +2,7 @@
 
 This is my personal portfolio site.
 
-It’s a small space where I collect things I’m building, thinking about, and exploring—mostly around design, systems, and how technology shapes human behavior.
+It’s a small space where I collect things I’m building, thinking about, and exploring, mostly around design, systems, and how technology shapes human behavior.
 
 I’m currently interested in things like:
 - AI + application
@@ -12,7 +12,7 @@ I’m currently interested in things like:
 
 ## What you’ll find here
 
-Not a perfect collection—more like a snapshot of ongoing directions.
+Not a perfect collection, but more like a snapshot of ongoing directions.
 
 Projects may include:
 - product ideas / prototypes
@@ -24,7 +24,7 @@ Projects may include:
 
 I don’t really see this as a “final portfolio.”
 
-It’s more like a working surface—where ideas stay visible while they’re still evolving.
+It’s more like a working surface, where ideas stay visible while they’re still evolving.
 
 Some things here are finished.  
 Some are not.  
